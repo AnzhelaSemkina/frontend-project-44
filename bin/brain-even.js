@@ -5,21 +5,16 @@ import name from '../src/cli.js';
 // Функция генерации  случайного числа от 1 до 100
 const generateRandomNumber = () => Math.round(Math.random() * 100);
 
-// Задаем вопрос со сгенерированным числом
-
 const startRound = () => {
-  // Записываем сгенерированное число в переменную
   const question = `Question: ${generateRandomNumber()}`;
-  const number = Number(question.slice(9));
-  console.log(question);
+  console.log(question); // Задаем вопрос со сгенерированным числом
+  const number = Number(question.slice(9)); // Записываем сгенерированное число в переменную
   const answer = readlineSync.question('Your answer: ');
-  // Определяем правильный ответ
-  const isCorrectAnswer = number % 2 === 0 ? 'yes' : 'no';
-  // Сравниваем ответы
-  if (answer === isCorrectAnswer) {
-    console.log('Correct!'); // Сообщаем об этом
+  const isCorrectAnswer = number % 2 === 0 ? 'yes' : 'no'; // Определяем правильный ответ
+  if (answer === isCorrectAnswer) { // Сравниваем ответы
+    console.log('Correct!'); // Сообщаем о выигрыше
     return true; // Возвращаем результат
-  } console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isCorrectAnswer}'.`); // Сообщаем об этом
+  } console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isCorrectAnswer}'.`); // Сообщаем о проигрыше
   return false; // Возвращаем результат
 };
 
