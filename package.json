@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/AnzhelaSemkina/frontend-project-44#readme",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-games": "bin/brain-games.js"    
   },
   "dependencies": {
     "eslint": "^8.24.0",
