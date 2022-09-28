@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import name from '../src/cli.js';
 
 // Функция генерации  случайного числа от 1 до 100
 const generateRandomNumber = () => Math.round(Math.random() * 100);
@@ -20,6 +19,9 @@ const startRound = () => {
 };
 
 const startGameBrainEven = () => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
 
   for (let i = 0; i < 3; i += 1) { // Запускаем цикл на 3 итерации
