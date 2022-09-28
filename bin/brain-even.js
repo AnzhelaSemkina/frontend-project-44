@@ -9,7 +9,7 @@ const startRound = () => {
   const question = `Question: ${generateRandomNumber()}`;
   console.log(question); // Задаем вопрос со сгенерированным числом
   const number = Number(question.slice(9)); // Записываем сгенерированное число в переменную
-  const answer = readlineSync.question('Your answer: ');
+  const answer = readlineSync.question('Your answer: '); // Получаем ответ
   const isCorrectAnswer = number % 2 === 0 ? 'yes' : 'no'; // Определяем правильный ответ
   if (answer === isCorrectAnswer) { // Сравниваем ответы
     console.log('Correct!'); // Сообщаем о выигрыше
@@ -19,9 +19,9 @@ const startRound = () => {
 };
 
 const startGameBrainEven = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  console.log('Welcome to the Brain Games!'); // Приветствуем в игре
+  const name = readlineSync.question('May I have your name? '); // Узнаем имя
+  console.log(`Hello, ${name}!`); // Приветствуем игрока
   console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
 
   for (let i = 0; i < 3; i += 1) { // Запускаем цикл на 3 итерации
