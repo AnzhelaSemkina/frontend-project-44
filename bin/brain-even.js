@@ -1,44 +1,23 @@
 #!/usr/bin/env node
-
 import readlineSync from 'readline-sync';
+import { greeting, startGameBrain } from '../src/index.js';
+import generateRandomNumber from '../src/generateRandomNumber.js';
+import getResult from '../src/getResult.js';
 
-console.log('Welcome to the Brain Games!'); // Приветствуем в игре
-const name = readlineSync.question('May I have your name? '); // Узнаем имя
-console.log(`Hello, ${name}!`); // Приветствуем игрока
-
-// Функция генерации  случайного числа от 1 до 100
-const generateRandomNumber = () => Math.round(Math.random() * 100);
+const name = greeting();
+console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
 
 const startRound = () => {
-  const question = `Question: ${generateRandomNumber()}`;
+  const randomNumber = generateRandomNumber(100); // Записываем сгенерированное число в переменную
+  const question = `Question: ${randomNumber}`;
   console.log(question); // Задаем вопрос со сгенерированным числом
-
-  const number = Number(question.slice(9)); // Записываем сгенерированное число в переменную
 
   const answer = readlineSync.question('Your answer: '); // Получаем ответ
 
-  const isCorrectAnswer = number % 2 === 0 ? 'yes' : 'no'; // Определяем правильный ответ
-
-  if (answer === isCorrectAnswer) { // Сравниваем ответы
-    console.log('Correct!'); // Сообщаем о выигрыше
-    return true; // Возвращаем результат
-  } console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isCorrectAnswer}'.`); // Сообщаем о проигрыше
-
-  return false; // Возвращаем результат
+  const isCorrectAnswer = randomNumber % 2 === 0 ? 'yes' : 'no'; // Определяем правильный ответ
+  return getResult(answer, isCorrectAnswer);
 };
 
-const startGameBrainEven = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
+export default startRound;
 
-  for (let i = 0; i < 3; i += 1) { // Запускаем цикл на 3 итерации
-    const isCorrect = startRound(); // Запускаем раунд
-    if (!isCorrect) { // Если раунд завершился неправильным ответом
-      console.log(`Let's try again, ${name}!`); // Говорим об этом
-      return; // Заканчиваем выполнение функции
-    }
-  }
-
-  console.log(`Congratulations, ${name}!`); // Если цикл выполнился успешно все 3 итерации, значит все три ответа были правильными
-};
-
-startGameBrainEven();
+startGameBrain(name);
