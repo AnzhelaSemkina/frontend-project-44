@@ -24,21 +24,20 @@ const getGreatestCommonDivisor = (num1, num2) => {
   if (num1 > num2) {
     return getRemainderDivision(num1, num2);
   }
-  if (num2 > num1) {
-    return getRemainderDivision(num2, num1);
-  }
+  return getRemainderDivision(num2, num1);
 };
 
-const startRound = () => {
+function startRound() {
   const randomNumber1 = generateRandomNumber(100); // Генерируем  1 случайное число
   const randomNumber2 = generateRandomNumber(100); // Генерируем  2 случайное число
   const question = `Question: ${randomNumber1} ${randomNumber2}`;
   console.log(question); // Задаем вопрос со сгенерированным выражением
 
   const answer = readlineSync.question('Your answer: '); // Получаем ответ
+
   // Определяем правильный ответ
   const correctAnswer = getGreatestCommonDivisor(randomNumber1, randomNumber2);
   return getResult(answer, String(correctAnswer));
-};
+}
 
 startGameBrain(name, startRound);
