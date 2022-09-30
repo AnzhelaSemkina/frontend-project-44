@@ -18,6 +18,4 @@ const startRound = () => {
   return getResult(answer, isCorrectAnswer);
 };
 
-export default startRound;
-
-startGameBrain(name);
+startGameBrain(name, startRound);
