@@ -37,6 +37,4 @@ const startRound = () => {
   return getResult(answer, String(correctAnswer));
 };
 
-export default startRound;
-
-startGameBrain(name);
+startGameBrain(name, startRound);
