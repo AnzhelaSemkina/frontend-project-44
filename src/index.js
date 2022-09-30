@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import startRound from '../bin/brain-even.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!'); // Приветствуем в игре
@@ -8,7 +7,7 @@ export const greeting = () => {
   return name;
 };
 
-export const startGameBrain = (name) => {
+export const startGameBrain = (name, startRound) => {
   for (let i = 0; i < 3; i += 1) { // Запускаем цикл на 3 итерации
     const resultRound = startRound();
     if (!resultRound) { // Если раунд завершился неправильным ответом
