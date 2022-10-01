@@ -7,7 +7,7 @@ const name = greeting();
 console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
 
 const startRound = () => {
-  const randomNumber = generateRandomNumber(100); // Генерируем  1 случайное число в пределах 100
+  const randomNumber = generateRandomNumber(0, 100); // Генерируем  1 случайное число в пределах 100
   const question = `Question: ${randomNumber}`;
   console.log(question); // Задаем вопрос со сгенерированным числом
 
