@@ -22,9 +22,9 @@ const expression = (a, b, operator) => { // Вычисление в зависи
 };
 
 const startRound = () => {
-  const randomNumber1 = generateRandomNumber(20); // Генерируем  1 случайное число в пределах 20
-  const randomNumber2 = generateRandomNumber(20); // Генерируем  2 случайное число в пределах 20
-  const random = generateRandomNumber(operators.length); // Генерация случайного индекса
+  const randomNumber1 = generateRandomNumber(0, 20); // Генерируем  1 случайное число в пределах 20
+  const randomNumber2 = generateRandomNumber(0, 20); // Генерируем  2 случайное число в пределах 20
+  const random = generateRandomNumber(0, operators.length); // Генерация случайного индекса
   const operator = operators[random]; // Генерируем случайный оператор
   const question = `Question: ${randomNumber1} ${operator} ${randomNumber2}`;
   console.log(question); // Задаем вопрос со сгенерированным выражением
