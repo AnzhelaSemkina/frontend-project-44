@@ -3,10 +3,10 @@ import { greeting, startGameBrain } from '../src/index.js';
 import generateRandomNumber from '../src/generateRandomNumber.js';
 import getResult from '../src/getResult.js';
 
-const name = greeting();
+const name = greeting(); // Запускаем импортированное приветствие
 console.log('What number is missing in the progression?'); // Объясняем правила игры
 
-function startRound() {
+function startRound() { // Функция 1 раунда
   const array = [];// Создаем пустой массив
   const randomLength = generateRandomNumber(5, 20) // Генерируем случайную длину <20 && >5
   const randomIndex = generateRandomNumber(0, (randomLength - 1)); // Генерируем случайный индекс в пределах randomLength - 1

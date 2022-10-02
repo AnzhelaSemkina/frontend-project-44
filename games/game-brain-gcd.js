@@ -3,29 +3,29 @@ import { greeting, startGameBrain } from '../src/index.js';
 import generateRandomNumber from '../src/generateRandomNumber.js';
 import getResult from '../src/getResult.js';
 
-const name = greeting();
+const name = greeting(); // Запускаем импортированное приветствие
 console.log('Find the greatest common divisor of given numbers.'); // Объясняем правила игры
 
-const getRemainderDivision = (num1, num2) => {
+const getGreatestCommonDivisor = (num1, num2) => { // Функция нахождения Наибольшего Общего Делителя
   let number1 = num1;
   let number2 = num2;
   let remainder;
-  do {
-    remainder = number1 % number2;
-    number1 = number2;
-    number2 = remainder;
-  } while (remainder);
-  return number1;
+  do { // Создаем цикл для нахождения делителя
+    remainder = number1 % number2; // Записываем в переменную остаток от деления 
+    number1 = number2; // Переприсваиваем переменные
+    number2 = remainder; 
+  } while (remainder); // Выполняем цикл до тех пор, пока не получим 0 в остатке
+  return number1; // Возвращаем число, записанное в первую переменную, т.к. в предыдущей итерации это и был НОД
 };
 
-const getGreatestCommonDivisor = (num1, num2) => {
-  if (num1 > num2) {
-    return getRemainderDivision(num1, num2);
+const getRemainder = (num1, num2) => { // Функция, определяющая нахождение НОД в зависимости от того, какое число больше
+  if (num1 > num2) { // Если 1е число больше 2го, то 
+    return getRemainderDivision(num1, num2); // Возвращаем результат 
   }
-  return getRemainderDivision(num2, num1);
+  return getRemainderDivision(num2, num1); // Иначе возвращаем результат с аргументами-числами, поменяв их местами
 };
 
-function startRound() {
+function startRound() { // Функция 1 раунда
   const randomNumber1 = generateRandomNumber(0, 25); // Генерируем  1 случайное число в пределах 25
   const randomNumber2 = generateRandomNumber(0, 50); // Генерируем  2 случайное число в пределах 50
   const question = `Question: ${randomNumber1} ${randomNumber2}`;
@@ -34,8 +34,8 @@ function startRound() {
   const answer = readlineSync.question('Your answer: '); // Получаем ответ
 
   // Определяем правильный ответ
-  const correctAnswer = getGreatestCommonDivisor(randomNumber1, randomNumber2);
-  return getResult(answer, String(correctAnswer));
+  const correctAnswer = getRemainder(randomNumber1, randomNumber2); // Определяем правильный ответ
+  return getResult(answer, String(correctAnswer)); //Возвращаем результат
 }
 
 startGameBrain(name, startRound);
