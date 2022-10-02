@@ -4,7 +4,7 @@ import generateRandomNumber from '../src/generateRandomNumber.js';
 import getResult from '../src/getResult.js';
 
 const name = greeting(); // Запускаем импортированное приветствие
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".'); // Объясняем правила игры
+console.log("Answer 'yes' if given number is prime. Otherwise answer 'no'."); // Объясняем правила игры
 
 const isPrime = (number) => { // Создаем функцию проверки числа
   if (number === 2) { // Если это 2, то возвращаем true
