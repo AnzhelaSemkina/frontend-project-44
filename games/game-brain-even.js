@@ -8,7 +8,7 @@ console.log("Answer 'yes' if number even otherwise answer 'no'."); // Объяс
 
 const startRound = () => { // Функция 1 раунда
   const randomNumber = generateRandomNumber(0, 100); // Генерируем  1 случайное число в пределах 100
-  const question = `Question: ${randomNumber}`; 
+  const question = `Question: ${randomNumber}`;
   console.log(question); // Задаем вопрос со сгенерированным числом
 
   const answer = readlineSync.question('Your answer: '); // Получаем ответ

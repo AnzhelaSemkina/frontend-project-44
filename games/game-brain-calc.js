@@ -32,7 +32,7 @@ const startRound = () => { // Функция 1 раунда
   const answer = readlineSync.question('Your answer: '); // Получаем ответ
   // Определяем правильный ответ
   const correctAnswer = expression(randomNumber1, randomNumber2, operator); //
-  return getResult(answer, String(correctAnswer)); //Возвращаем результат
+  return getResult(answer, String(correctAnswer)); // Возвращаем результат
 };
 
 startGameBrain(name, startRound);
