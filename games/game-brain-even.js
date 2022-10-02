@@ -4,7 +4,7 @@ import generateRandomNumber from '../src/generateRandomNumber.js';
 import getResult from '../src/getResult.js';
 
 const name = greeting(); // Запускаем импортированное приветствие
-console.log('Answer "yes" if the number is even, otherwise answer "no".'); // Объясняем правила игры
+console.log("Answer 'yes' if number even otherwise answer 'no'."); // Объясняем правила игры
 
 const startRound = () => { // Функция 1 раунда
   const randomNumber = generateRandomNumber(0, 100); // Генерируем  1 случайное число в пределах 100
