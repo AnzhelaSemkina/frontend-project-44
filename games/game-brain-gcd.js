@@ -26,8 +26,8 @@ const getRemainder = (num1, num2) => {
 };
 
 function startRound() { // Функция 1 раунда
-  const randomNumber1 = generateRandomNumber(0, 25); // Генерируем  1 случайное число в пределах 25
-  const randomNumber2 = generateRandomNumber(0, 50); // Генерируем  2 случайное число в пределах 50
+  const randomNumber1 = generateRandomNumber(1, 25); // Генерируем  1 случайное число в пределах 25
+  const randomNumber2 = generateRandomNumber(1, 50); // Генерируем  2 случайное число в пределах 50
   const question = `Question: ${randomNumber1} ${randomNumber2}`;
   console.log(question); // Задаем вопрос со сгенерированным выражением
 
