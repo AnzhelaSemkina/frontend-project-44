@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/AnzhelaSemkina/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/AnzhelaSemkina/frontend-project-44/actions) <a href="https://codeclimate.com/github/AnzhelaSemkina/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/2ff1c02c334fe4f672aa/maintainability" /></a>
 
-## This repository contains a set of 5 console math games.
+This repository contains a set of 5 console math games.
 
 ## List of games:
 
@@ -36,12 +36,6 @@ brain-gcd or
 brain-progression or
 brain-prime
 ```
-
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=nodejs-package)
-
-This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet](https://hexlet.io/?utm_source=github&utm_medium=link&utm_campaign=nodejs-package).
-
-See most active contributors on [hexlet-friends](https://friends.hexlet.io/).
 
 [![asciicast](https://asciinema.org/a/rs6glqj4qMw5nJ6rhrapYN9Io.svg)](https://asciinema.org/a/rs6glqj4qMw5nJ6rhrapYN9Io)
 
