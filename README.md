@@ -22,8 +22,19 @@ This repository contains a set of 5 console math games.
 
 ```bash
 make install
-chmod +x bin/brain-***games***.js // Add execute permissions to file. Change the name of the game.
+```
+
+// Add execute permissions to file. Change the name of the game.
+
+```bash
+chmod +x bin/brain-***games***.js
+```
+
+```bash
 make publish
+```
+
+```bash
 npm link
 ```
 
