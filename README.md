@@ -30,10 +30,22 @@ npm link
 ## Game launch:
 
 ```bash
-brain-even or
-brain-calc or
-brain-gcd or
-brain-progression or
+brain-even
+```
+
+```bash
+brain-calc
+```
+
+```bash
+brain-gcd
+```
+
+```bash
+brain-progression
+```
+
+```bash
 brain-prime
 ```
 
