@@ -21,8 +21,10 @@ export default () => {
   const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
   const runRound = () => { // Функция 1 раунда игры
     const randomNumber = generateRandomNumber(0, 100); // Генерируем случайное число в пределах 100
+
     console.log(askQuestion(randomNumber)); // Задаем вопрос со сгенерированным числом
     const userAnswer = getAnswer(); // Получаем ответ
+
     const isCorrectAnswer = isPrime(randomNumber) ? 'yes' : 'no'; // Определяем правильный ответ
     return getResult(userAnswer, isCorrectAnswer); // Определяем результат раунда
   };
