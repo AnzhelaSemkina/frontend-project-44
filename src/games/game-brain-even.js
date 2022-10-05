@@ -6,6 +6,7 @@ export default () => {
   const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".'; // Объясняем правила игры
   const runRound = () => { // Функция 1 раунда
     const randomNumber = generateRandomNumber(0, 100); // Генерируем случайное число в пределах 100
+
     console.log(askQuestion(randomNumber)); // Задаем вопрос
     const userAnswer = getAnswer(); // Получаем ответ
 
