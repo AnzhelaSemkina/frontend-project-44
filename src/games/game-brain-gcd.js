@@ -1,21 +1,16 @@
-import readlineSync from 'readline-sync';
-import greet from '../cli.js';
-import runGameBrain from '../index.js';
+import { askQuestion, getAnswer, runGameBrain } from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 import getResult from '../getResult.js';
-
-const name = greet(); // Запускаем импортированное приветствие
-console.log('Find the greatest common divisor of given numbers.'); // Объясняем правила игры
 
 const getGreatestCommonDivisor = (num1, num2) => { // Функция нахождения Наибольшего Общего Делителя
   let number1 = num1;
   let number2 = num2;
   let remainder;
-  do { // Создаем цикл для нахождения делителя
+  while ((number1 % number2) >= 0) { // Создаем цикл для нахождения делителя
     remainder = number1 % number2; // Записываем в переменную остаток от деления
     number1 = number2; // Переприсваиваем переменные
     number2 = remainder;
-  } while (remainder); // Выполняем цикл до тех пор, пока не получим 0 в остатке
+  } // Выполняем цикл до тех пор, пока не получим 0 в остатке
   return number1; // Возвращаем число1, т.к. в предыдущей итерации это и был НОД
 };
 
@@ -26,17 +21,19 @@ const getRemainder = (num1, num2) => {
   return getGreatestCommonDivisor(num2, num1); // Иначе возврат результата поменяв местами аругменты
 };
 
-function startRound() { // Функция 1 раунда
-  const randomNumber1 = generateRandomNumber(1, 25); // Генерируем  1 случайное число в пределах 25
-  const randomNumber2 = generateRandomNumber(1, 50); // Генерируем  2 случайное число в пределах 50
-  const question = `Question: ${randomNumber1} ${randomNumber2}`;
-  console.log(question); // Задаем вопрос со сгенерированным выражением
+export default () => {
+  const gameRules = 'Find the greatest common divisor of given numbers.'; // Объясняем правила игры
+  const runRound = () => { // Функция 1 раунда
+    const randomNumber1 = generateRandomNumber(1, 25); // Генерируем  1случайное число в пределах 25
+    const randomNumber2 = generateRandomNumber(1, 50); // Генерируем  2cлучайное число в пределах 50
+    const pairOfNumber = `${randomNumber1} ${randomNumber2}`;
 
-  const answer = readlineSync.question('Your answer: '); // Получаем ответ
+    console.log(askQuestion(pairOfNumber)); // Задаем вопрос
+    const userAnswer = getAnswer(); // Получаем ответ
 
-  // Определяем правильный ответ
-  const correctAnswer = getRemainder(randomNumber1, randomNumber2); // Определяем правильный ответ
-  return getResult(answer, String(correctAnswer)); // Возвращаем результат
-}
+    return getResult(userAnswer, String(getRemainder(randomNumber1, randomNumber2)));
+    // Возвращаем результат сравнения ответа пользователя с правильным ответом
+  };
 
-runGameBrain(name, startRound);
+  runGameBrain(gameRules, runRound);
+};
