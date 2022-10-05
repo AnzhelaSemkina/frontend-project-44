@@ -19,7 +19,7 @@ const isPrime = (number) => { // Создаем функцию проверки 
 
 export default () => {
   const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
-  const startRound = () => { // Функция 1 раунда игры
+  const runRound = () => { // Функция 1 раунда игры
     const randomNumber = generateRandomNumber(0, 100); // Генерируем случайное число в пределах 100
     console.log(askQuestion(randomNumber)); // Задаем вопрос со сгенерированным числом
     const userAnswer = getAnswer(); // Получаем ответ
@@ -27,5 +27,5 @@ export default () => {
     return getResult(userAnswer, isCorrectAnswer); // Определяем результат раунда
   };
 
-  runGameBrain(gameRules, startRound);
+  runGameBrain(gameRules, runRound);
 };
