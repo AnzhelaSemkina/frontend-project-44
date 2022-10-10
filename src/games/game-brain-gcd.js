@@ -2,15 +2,11 @@ import { runGameBrain } from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 
 const getGreatestCommonDivisor = (num1, num2) => { // Функция нахождения Наибольшего Общего Делителя
-  let number1 = num1;
-  let number2 = num2;
-  let remainder;
-  while ((number1 % number2) >= 0) { // Создаем цикл для нахождения делителя
-    remainder = number1 % number2; // Записываем в переменную остаток от деления
-    number1 = number2; // Переприсваиваем переменные
-    number2 = remainder;
-  } // Выполняем цикл до тех пор, пока не получим 0 в остатке
-  return number1; // Возвращаем число1, т.к. в предыдущей итерации это и был НОД
+  const remainder = num1 % num2; // Определяем остаток от деления
+  if (remainder === 0) {
+    return num2; // если остаток 0, то 2е число - НОД
+  }
+  return getGreatestCommonDivisor(num2, remainder); // Идем рекурсивно вглубь до 0 в остатке
 };
 
 const getRemainder = (num1, num2) => {
