@@ -1,15 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const greet = () => {
-  console.log('Welcome to the Brain Games!'); // Приветствуем в игре
-  const name = readlineSync.question('May I have your name? '); // Узнаем имя
-  console.log(`Hello, ${name}!`); // Приветствуем игрока
-  return name;
-};
+const askQuestion = (number) => `Question: ${number}`;// Задаем вопрос со сгенерированным числом
 
-export const askQuestion = (number) => `Question: ${number}`;// Задаем вопрос со сгенерированным числом
-
-export const getAnswer = () => {
+const getAnswer = () => {
   const answer = readlineSync.question('Your answer: '); // Получаем ответ
   return answer;
 };
@@ -26,8 +19,10 @@ const getResult = (userAnswer, correctAnswer) => {
 
 const amountRound = 3; // Максимальное количество раундов игры
 
-export const runGameBrain = (gameRules, getValuesRound) => {
-  const name = greet();
+const runGameBrain = (gameRules, getValuesRound) => {
+  console.log('Welcome to the Brain Games!'); // Приветствуем в игре
+  const name = readlineSync.question('May I have your name? '); // Узнаем имя
+  console.log(`Hello, ${name}!`); // Приветствуем игрока
   console.log(gameRules);
   for (let i = 0; i < amountRound; i += 1) { // Запускаем цикл на 3 раунда
     const [question, correctAnswer] = getValuesRound();
@@ -42,3 +37,5 @@ export const runGameBrain = (gameRules, getValuesRound) => {
 
   console.log(`Congratulations, ${name}!`); // Если цикл выполнился успешно все 3 итерации, значит все три ответа были правильными
 };
+
+export default runGameBrain;
