@@ -1,4 +1,4 @@
-import { runGameBrain } from '../index.js';
+import runGameBrain from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 
 const getProgression = (length, stepProgression) => {
@@ -10,9 +10,9 @@ const getProgression = (length, stepProgression) => {
 };
 
 const gameRule = 'What number is missing in the progression?'; // Объясняем правила игры
-const maxLength = 20;
-const minLength = 5;
-const maxStep = 10;
+const maxLength = 20; // Максимальная длина прогрессии
+const minLength = 5; // Минимальная длина прогрессии
+const maxStep = 10; // Максимальный шаг прогрессии
 
 export default () => {
   const runRound = () => { // Функция 1 раунда игры

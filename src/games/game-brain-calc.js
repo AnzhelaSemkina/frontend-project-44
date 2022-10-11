@@ -1,4 +1,4 @@
-import { runGameBrain } from '../index.js';
+import runGameBrain from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 
 const findValueOfExpression = (a, b, operator) => { // Функция вычисления в зависимости от оператора
@@ -15,7 +15,7 @@ const findValueOfExpression = (a, b, operator) => { // Функция вычис
 };
 
 const operators = ['+', '-', '*'];// Создаем массив операторов
-const maxNumber = 20;
+const maxNumber = 20; // Максимальное генерируемое число
 const gameRule = 'What is the result of the expression?'; // Объясняем правила игры
 
 export default () => {

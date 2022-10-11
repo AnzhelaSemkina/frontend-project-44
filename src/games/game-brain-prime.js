@@ -1,4 +1,4 @@
-import { runGameBrain } from '../index.js';
+import runGameBrain from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 
 const isPrime = (number) => { // Создаем функцию проверки числа
@@ -16,7 +16,7 @@ const isPrime = (number) => { // Создаем функцию проверки 
   return true; // то возвращаем true
 };
 
-const maxNumber = 100;
+const maxNumber = 100; // Максимальное генерируемое число
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
 
 export default () => {

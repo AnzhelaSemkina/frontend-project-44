@@ -1,4 +1,4 @@
-import { runGameBrain } from '../index.js';
+import runGameBrain from '../index.js';
 import generateRandomNumber from '../generateRandomNumber.js';
 
 const getGCD = (num1, num2) => { // Функция нахождения Наибольшего Общего Делителя
@@ -9,7 +9,7 @@ const getGCD = (num1, num2) => { // Функция нахождения Наиб
   return getGCD(num2, remainder); // Идем рекурсивно вглубь до 0 в остатке
 };
 
-const maxNumber = 40;
+const maxNumber = 40; // Максимальное генерируемое число
 const gameRule = 'Find the greatest common divisor of given numbers.'; // Объясняем правила игры
 
 export default () => {
