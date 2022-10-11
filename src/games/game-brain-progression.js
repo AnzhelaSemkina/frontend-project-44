@@ -9,30 +9,23 @@ const getProgression = (length, stepProgression) => {
   return array;
 };
 
-const convertArrayToString = (array) => { //
-  const string = array.join(' '); // Переводим массив в строку
-  return string;
-};
-
-const getCorrectAnswer = (array, index) => {
-  const correctAnswer = array[index]; // Определяем правильный ответ
-  return correctAnswer;
-};
-
-const gameRules = 'What number is missing in the progression?'; // Объясняем правила игры
+const gameRule = 'What number is missing in the progression?'; // Объясняем правила игры
+const maxLength = 20;
+const minLength = 5;
+const maxStep = 10;
 
 export default () => {
   const runRound = () => { // Функция 1 раунда игры
-    const randomLength = generateRandomNumber(5, 20); // Генерируем случайную длину <20 && >5
-    const randomIndex = generateRandomNumber(0, (randomLength - 1)); // Генерируем случайный индекс
-    const randomStep = generateRandomNumber(1, 10); // Генерируем число для шага прогрессии
+    const randomLength = generateRandomNumber(maxLength, minLength); // Генерируем случайную длину
+    const randomIndex = generateRandomNumber(randomLength - 1, 0); // Генерируем случайный индекс
+    const randomStep = generateRandomNumber(maxStep); // Генерируем число для шага прогрессии
     const progression = getProgression(randomLength, randomStep);// Получаем массив чисел прогрессии
-    const correctAnswer = getCorrectAnswer(progression, randomIndex); // Получаем правильный ответ
+    const correctAnswer = progression[randomIndex]; // Определяем правильный ответ
     progression[randomIndex] = '..'; // Прячем это значение
-    // Создаем массив для правильной работы логики
-    const result = [convertArrayToString(progression), correctAnswer];
-    return result;
+    const question = progression.join(' '); // Переводим массив в строку для вопроса
+    // Возвращаем массив для правильной работы логики
+    return [question, correctAnswer];
   };
 
-  runGameBrain(gameRules, runRound);
+  runGameBrain(gameRule, runRound);
 };
