@@ -8,7 +8,7 @@ const isPrime = (number) => { // Создаем функцию проверки 
   if (number < 2 || number % 2 === 0) { // Если же число меньше 2 или четное-возвращаем false
     return false;
   }
-  for (let i = 3; i < (number / 2); i += 1) { // Цикл для перебора значений до половины от числа
+  for (let i = 3; i < number / 2; i += 1) { // Цикл для перебора значений до половины от числа
     if (number % i === 0) { // Если число делится на i без остатка - возвращаем false
       return false;
     }
@@ -16,15 +16,15 @@ const isPrime = (number) => { // Создаем функцию проверки 
   return true; // то возвращаем true
 };
 
-const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
+const maxNumber = 100;
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
 
 export default () => {
   const runRound = () => { // Функция 1 раунда игры
-    const randomNumber = generateRandomNumber(0, 100); // Генерируем случайное число в пределах 100
-    const isCorrectAnswer = isPrime(randomNumber) ? 'yes' : 'no'; // Определяем правильный ответ
-    const result = [randomNumber, isCorrectAnswer]; // Создаем массив для правильной работы логики
-    return result;
+    const randomNumber = generateRandomNumber(maxNumber); // Генерируем случайное число
+    const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no'; // Определяем правильный ответ
+    return [randomNumber, correctAnswer]; // Возвращаем массив для правильной работы логики
   };
 
-  runGameBrain(gameRules, runRound);
+  runGameBrain(gameRule, runRound);
 };
