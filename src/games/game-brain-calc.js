@@ -15,19 +15,19 @@ const findValueOfExpression = (a, b, operator) => { // Функция вычис
 };
 
 const operators = ['+', '-', '*'];// Создаем массив операторов
-const gameRules = 'What is the result of the expression?'; // Объясняем правила игры
+const maxNumber = 20;
+const gameRule = 'What is the result of the expression?'; // Объясняем правила игры
 
 export default () => {
   const runRound = () => { // Функция 1 раунда
-    const number1 = generateRandomNumber(0, 20);// Генерируем  1 случайное число в пределах 20
-    const number2 = generateRandomNumber(0, 20);// Генерируем  2 случайное число в пределах 20
-    const random = generateRandomNumber(0, (operators.length - 1)); // Генерация случайного индекса
-    const operator = operators[random]; // Генерируем случайный оператор
+    const number1 = generateRandomNumber(maxNumber);// Генерируем  1случайное число
+    const number2 = generateRandomNumber(maxNumber);// Генерируем  2случайное число
+    const randomIndex = generateRandomNumber(operators.length - 1);// Получаем случайный индекс
+    const operator = operators[randomIndex]; // Генерируем оператор по случайному индексу
     const expression = `${number1} ${operator} ${number2}`; // Записываем выражение для вопроса
-    // Создаем массив для правильной работы логики
-    const result = [expression, findValueOfExpression(number1, number2, operator)];
-    return result;
+    // Возвращаем массив для правильной работы логики
+    return [expression, findValueOfExpression(number1, number2, operator)];
   };
 
-  runGameBrain(gameRules, runRound);
+  runGameBrain(gameRule, runRound);
 };
