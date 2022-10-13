@@ -20,11 +20,11 @@ const maxNumber = 100; // Максимальное генерируемое чи
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".'; // Объясняем правила игры
 
 export default () => {
-  const runRound = () => { // Функция 1 раунда игры
+  const getData = () => { // Функция 1 раунда игры
     const randomNumber = generateRandomNumber(maxNumber); // Генерируем случайное число
     const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no'; // Определяем правильный ответ
     return [randomNumber, correctAnswer]; // Возвращаем массив для правильной работы логики
   };
 
-  runGameBrain(gameRule, runRound);
+  runGameBrain(gameRule, getData);
 };

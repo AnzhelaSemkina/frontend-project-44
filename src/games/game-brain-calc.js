@@ -19,7 +19,7 @@ const maxNumber = 20; // Максимальное генерируемое чи�
 const gameRule = 'What is the result of the expression?'; // Объясняем правила игры
 
 export default () => {
-  const runRound = () => { // Функция 1 раунда
+  const getData = () => { // Функция 1 раунда
     const number1 = generateRandomNumber(maxNumber);// Генерируем  1случайное число
     const number2 = generateRandomNumber(maxNumber);// Генерируем  2случайное число
     const randomIndex = generateRandomNumber(operators.length - 1);// Получаем случайный индекс
@@ -29,5 +29,5 @@ export default () => {
     return [expression, findValueOfExpression(number1, number2, operator)];
   };
 
-  runGameBrain(gameRule, runRound);
+  runGameBrain(gameRule, getData);
 };

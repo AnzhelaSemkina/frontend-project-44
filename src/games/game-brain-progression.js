@@ -15,7 +15,7 @@ const minLength = 5; // Минимальная длина прогрессии
 const maxStep = 10; // Максимальный шаг прогрессии
 
 export default () => {
-  const runRound = () => { // Функция 1 раунда игры
+  const getData = () => { // Функция 1 раунда игры
     const randomLength = generateRandomNumber(maxLength, minLength); // Генерируем случайную длину
     const randomIndex = generateRandomNumber(randomLength - 1, 0); // Генерируем случайный индекс
     const randomStep = generateRandomNumber(maxStep); // Генерируем число для шага прогрессии
@@ -27,5 +27,5 @@ export default () => {
     return [question, correctAnswer];
   };
 
-  runGameBrain(gameRule, runRound);
+  runGameBrain(gameRule, getData);
 };

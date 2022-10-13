@@ -13,7 +13,7 @@ const maxNumber = 40; // Максимальное генерируемое чи�
 const gameRule = 'Find the greatest common divisor of given numbers.'; // Объясняем правила игры
 
 export default () => {
-  const runRound = () => { // Функция 1 раунда
+  const getData = () => { // Функция 1 раунда
     const num1 = generateRandomNumber(maxNumber);// Генерируем  1случайное число
     const num2 = generateRandomNumber(maxNumber);// Генерируем  2случайное число
     const question = `${num1} ${num2}`; // Записываем пару чисел для вопроса
@@ -23,5 +23,5 @@ export default () => {
     return [question, divisor];
   };
 
-  runGameBrain(gameRule, runRound);
+  runGameBrain(gameRule, getData);
 };

@@ -8,11 +8,11 @@ const minNumber = 0; // Минимальное генерируемое числ
 const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".'; // Объясняем правила игры
 
 export default () => {
-  const runRound = () => { // Функция запуска 1 раунда
+  const getData = () => { // Функция запуска 1 раунда
     const randomNumber = generateRandomNumber(maxNumber, minNumber); // Генерируем случайное число
     const correctAnswer = isEven(randomNumber) ? 'yes' : 'no'; // Определяем правильный ответ
     return [randomNumber, correctAnswer]; // Возвращаем массив для правильной работы логики
   };
 
-  runGameBrain(gameRule, runRound);
+  runGameBrain(gameRule, getData);
 };
