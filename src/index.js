@@ -1,36 +1,36 @@
 import readlineSync from 'readline-sync';
 
-const askQuestion = (number) => `Question: ${number}`;// Задаем вопрос со сгенерированным числом
+const askQuestion = (number) => `Question: ${number}`;
 
 const getResult = (userAnswer, correctAnswer) => {
-  if (userAnswer === correctAnswer) { // Сравниваем ответы
-    console.log('Correct!'); // Сообщаем о выигрыше
-    return true; // Возвращаем результат
+  if (userAnswer === correctAnswer) {
+    console.log('Correct!');
+    return true;
   }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`); // Сообщаем о проигрыше
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
 
-  return false; // Возвращаем результат
+  return false;
 };
 
-const amountRound = 3; // Максимальное количество раундов игры
+const amountRound = 3;
 
 const runGameBrain = (gameRules, getValuesRound) => {
-  console.log('Welcome to the Brain Games!'); // Приветствуем в игре
-  const name = readlineSync.question('May I have your name? '); // Узнаем имя
-  console.log(`Hello, ${name}!`); // Приветствуем игрока
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log(gameRules);
-  for (let i = 0; i < amountRound; i += 1) { // Запускаем цикл на 3 раунда
+  for (let i = 0; i < amountRound; i += 1) {
     const [question, correctAnswer] = getValuesRound();
-    console.log(askQuestion(question)); // Задаем вопрос со сгенерированным выражением
-    const answer = readlineSync.question('Your answer: '); // Получаем ответ
+    console.log(askQuestion(question));
+    const answer = readlineSync.question('Your answer: ');
     const resultRound = getResult(answer, String(correctAnswer));
-    if (!resultRound) { // Если раунд завершился неправильным ответом
-      console.log(`Let's try again, ${name}!`); // Говорим об этом
-      return; // Заканчиваем выполнение функции
+    if (!resultRound) {
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
 
-  console.log(`Congratulations, ${name}!`); // Если цикл выполнился успешно все 3 итерации, значит все три ответа были правильными
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default runGameBrain;
